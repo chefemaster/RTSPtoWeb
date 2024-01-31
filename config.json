@@ -1,4 +1,5 @@
 {
+  "channel_defaults": {},
   "server": {
     "debug": true,
     "http_debug": false,
@@ -13,26 +14,52 @@
     "https_cert": "server.crt",
     "https_key": "server.key",
     "https_port": ":443",
-    "ice_servers": ["stun:stun.l.google.com:19302"],
+    "ice_credential": "",
+    "ice_servers": [
+      "stun:stun.l.google.com:19302"
+    ],
+    "ice_username": "",
     "log_level": "debug",
     "rtsp_port": ":5541",
     "token": {
-      "backend": "http://127.0.0.1/test.php"
+      "backend": "http://127.0.0.1/test.php",
+      "enable": false
     },
-    "defaults": {
-      "audio": true
-    }
+    "webrtc_port_max": 0,
+    "webrtc_port_min": 0
   },
   "streams": {
     "27aec28e-6181-4753-9acd-0456a75f0289": {
       "channels": {
         "0": {
-          "url": "rtmp://171.25.232.10/12d525bc9f014e209c1280bc0d46a87e",
-          "debug": false,
-          "audio": true
+          "url": "rtsp://admin:sh0merc0$@192.168.10.130:554/Streaming/channels/102/?transportmode=unicast"
         }
       },
-      "name": "111111111"
+      "name": "shomer"
+    },
+    "30da098b-d53f-476e-865b-54b13e066115": {
+      "channels": {
+        "0": {
+          "url": "rtsp://admin:sh0merc0$@192.168.25.197:554/Streaming/channels/101/?transportmode=unicast"
+        }
+      },
+      "name": "3002"
+    },
+    "32e29952-e3d6-488c-8d67-e0e7c021b04b": {
+      "channels": {
+        "0": {
+          "url": "rtsp://admin:sh0merc0$@192.168.14.151:554/Streaming/channels/102/?transportmode=unicast"
+        }
+      },
+      "name": "1004 - entrada"
+    },
+    "c3be7e46-1b23-4cee-871e-e17b5c3a298d": {
+      "channels": {
+        "0": {
+          "url": "rtsp://admin:sh0merc0$@192.168.14.153:554/Streaming/channels/102/?transportmode=unicast"
+        }
+      },
+      "name": "teste"
     }
   }
 }

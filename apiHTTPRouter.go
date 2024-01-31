@@ -35,9 +35,9 @@ func HTTPAPIServer() {
 
 	public.Use(CrossOrigin())
 	//Add private login password protect methods
-	privat := public.Group("/")
+	private := public.Group("/")
 	if Storage.ServerHTTPLogin() != "" && Storage.ServerHTTPPassword() != "" {
-		privat.Use(gin.BasicAuth(gin.Accounts{Storage.ServerHTTPLogin(): Storage.ServerHTTPPassword()}))
+		private.Use(gin.BasicAuth(gin.Accounts{Storage.ServerHTTPLogin(): Storage.ServerHTTPPassword()}))
 	}
 
 	/*
@@ -64,30 +64,30 @@ func HTTPAPIServer() {
 		Stream Control elements
 	*/
 
-	privat.GET("/streams", HTTPAPIServerStreams)
-	privat.POST("/stream/:uuid/add", HTTPAPIServerStreamAdd)
-	privat.POST("/stream/:uuid/edit", HTTPAPIServerStreamEdit)
-	privat.GET("/stream/:uuid/delete", HTTPAPIServerStreamDelete)
-	privat.GET("/stream/:uuid/reload", HTTPAPIServerStreamReload)
-	privat.GET("/stream/:uuid/info", HTTPAPIServerStreamInfo)
+	private.GET("/streams", HTTPAPIServerStreams)
+	private.POST("/stream/:uuid/add", HTTPAPIServerStreamAdd)
+	private.POST("/stream/:uuid/edit", HTTPAPIServerStreamEdit)
+	private.GET("/stream/:uuid/delete", HTTPAPIServerStreamDelete)
+	private.GET("/stream/:uuid/reload", HTTPAPIServerStreamReload)
+	private.GET("/stream/:uuid/info", HTTPAPIServerStreamInfo)
 
 	/*
 		Streams Multi Control elements
 	*/
 
-	privat.POST("/streams/multi/control/add", HTTPAPIServerStreamsMultiControlAdd)
-	privat.POST("/streams/multi/control/delete", HTTPAPIServerStreamsMultiControlDelete)
+	private.POST("/streams/multi/control/add", HTTPAPIServerStreamsMultiControlAdd)
+	private.POST("/streams/multi/control/delete", HTTPAPIServerStreamsMultiControlDelete)
 
 	/*
 		Stream Channel elements
 	*/
 
-	privat.POST("/stream/:uuid/channel/:channel/add", HTTPAPIServerStreamChannelAdd)
-	privat.POST("/stream/:uuid/channel/:channel/edit", HTTPAPIServerStreamChannelEdit)
-	privat.GET("/stream/:uuid/channel/:channel/delete", HTTPAPIServerStreamChannelDelete)
-	privat.GET("/stream/:uuid/channel/:channel/codec", HTTPAPIServerStreamChannelCodec)
-	privat.GET("/stream/:uuid/channel/:channel/reload", HTTPAPIServerStreamChannelReload)
-	privat.GET("/stream/:uuid/channel/:channel/info", HTTPAPIServerStreamChannelInfo)
+	private.POST("/stream/:uuid/channel/:channel/add", HTTPAPIServerStreamChannelAdd)
+	private.POST("/stream/:uuid/channel/:channel/edit", HTTPAPIServerStreamChannelEdit)
+	private.GET("/stream/:uuid/channel/:channel/delete", HTTPAPIServerStreamChannelDelete)
+	private.GET("/stream/:uuid/channel/:channel/codec", HTTPAPIServerStreamChannelCodec)
+	private.GET("/stream/:uuid/channel/:channel/reload", HTTPAPIServerStreamChannelReload)
+	private.GET("/stream/:uuid/channel/:channel/info", HTTPAPIServerStreamChannelInfo)
 
 	/*
 		Stream video elements
