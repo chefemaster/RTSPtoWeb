@@ -14,9 +14,7 @@
     "https_cert": "server.crt",
     "https_key": "server.key",
     "https_port": ":443",
-    "ice_credential": "",
-    "ice_servers": [],
-    "ice_username": "",
+    "ice_servers": ["stun:stun.l.google.com:19302"],
     "log_level": "debug",
     "rtsp_port": ":5541",
     "token": {
@@ -60,11 +58,12 @@
     "1706879841TG3000": {
       "channels": {
         "0": {
-          "on_demand": true,
-          "url": "rtsp://admin:sh0merc0$@192.168.10.170:554/Streaming/channels/102/?transportmode=multicast"
+          "url": "rtmp://171.25.232.10/12d525bc9f014e209c1280bc0d46a87e",
+          "debug": false,
+          "audio": true
         }
       },
-      "name": "Shomer Porta"
+      "name": "111111111"
     }
   }
 }
