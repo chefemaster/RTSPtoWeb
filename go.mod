@@ -9,7 +9,7 @@ require (
 	github.com/gobwas/ws v1.3.2
 	github.com/hashicorp/go-version v1.6.0
 	github.com/imdario/mergo v0.3.16
-	github.com/liip/sheriff v0.11.1
+	github.com/liip/sheriff v0.12.0
 	github.com/sirupsen/logrus v1.9.3
 )
 
@@ -54,7 +54,7 @@ require (
 	github.com/pion/udp/v2 v2.0.1 // indirect
 	github.com/pion/webrtc/v3 v3.2.12 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/stretchr/testify v1.8.4 // indirect
+	github.com/stretchr/testify v1.9.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.11 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
