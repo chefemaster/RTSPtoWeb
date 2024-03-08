@@ -13,7 +13,11 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-//StreamServerRunStreamDo stream run do mux
+const dialTimeout = 30
+
+const readWriteTimeout = 60
+
+// StreamServerRunStreamDo stream run do mux
 func StreamServerRunStreamDo(streamID string, channelID string) {
 	var status int
 	defer func() {
@@ -61,7 +65,7 @@ func StreamServerRunStreamDo(streamID string, channelID string) {
 	}
 }
 
-//StreamServerRunStream core stream
+// StreamServerRunStream core stream
 func StreamServerRunStream(streamID string, channelID string, opt *ChannelST) (int, error) {
 	if url, err := url.Parse(opt.URL); err == nil && strings.ToLower(url.Scheme) == "rtmp" {
 		return StreamServerRunStreamRTMP(streamID, channelID, opt)
@@ -72,7 +76,14 @@ func StreamServerRunStream(streamID string, channelID string, opt *ChannelST) (i
 	var fps int
 	var preKeyTS = time.Duration(0)
 	var Seq []*av.Packet
-	RTSPClient, err := rtspv2.Dial(rtspv2.RTSPClientOptions{URL: opt.URL, InsecureSkipVerify: opt.InsecureSkipVerify, DisableAudio: !opt.Audio, DialTimeout: 3 * time.Second, ReadWriteTimeout: 5 * time.Second, Debug: opt.Debug, OutgoingProxy: true})
+	RTSPClient, err := rtspv2.Dial(rtspv2.RTSPClientOptions{
+		URL:                opt.URL,
+		InsecureSkipVerify: opt.InsecureSkipVerify,
+		DisableAudio:       !opt.Audio,
+		DialTimeout:        dialTimeout * time.Second,
+		ReadWriteTimeout:   readWriteTimeout * time.Second,
+		Debug:              opt.Debug, OutgoingProxy: true,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -192,7 +203,7 @@ func StreamServerRunStreamRTMP(streamID string, channelID string, opt *ChannelST
 	var preKeyTS = time.Duration(0)
 	var Seq []*av.Packet
 
-	conn, err := rtmp.DialTimeout(opt.URL, 3*time.Second)
+	conn, err := rtmp.DialTimeout(opt.URL, dialTimeout*time.Second)
 	if err != nil {
 		return 0, err
 	}

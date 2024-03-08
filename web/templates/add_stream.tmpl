@@ -14,10 +14,6 @@
     </div>
   </div><!-- /.container-fluid -->
 </div>
-
-
-
-
   <section class="content">
     <div class="container-fluid">
       <div class="row" id="streams-form-wrapper">
@@ -29,9 +25,14 @@
             </div>
               <div class="card-body">
                 <form class="stream-form main-form">
+                 <div class="form-group">
+                  <label for="exampleInputEmail1">Stream ID</label>
+                  <input type="text" class="form-control" name="stream-id" placeholder="Enter stream id" id="stream-id" required>
+                  <small  class="form-text text-muted">You can choose any id for the stream</small>
+                </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Stream name</label>
-                  <input type="text" class="form-control" name="stream-name" placeholder="Enter stream name" id="stream-name">
+                  <input type="text" class="form-control" name="stream-name" placeholder="Enter stream name" id="stream-name" required>
                   <small  class="form-text text-muted">You can choose any name for the stream, for example "My room" or  "Happy sausage"</small>
                 </div>
                 <div class="form-group">
@@ -75,9 +76,17 @@
 <script>
 function addStreamSubmit(){
   var params = {
-    uuid:randomUuid(),
+    uuid:$('#stream-id').val(),
     name:$('#stream-name').val(),
     channels:{}
+  }
+  if(!params.uuid){
+   alert("Informe o id");
+   return;
+  }
+  if(!params.name){
+    alert("Informe o Nome");
+    return;
   }
 
   $('.stream-form').each(function(i){

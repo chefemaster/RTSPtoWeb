@@ -2,11 +2,11 @@
   "channel_defaults": {},
   "server": {
     "debug": true,
-    "http_debug": false,
+    "http_debug": true,
     "http_demo": true,
     "http_dir": "web",
-    "http_login": "demo",
-    "http_password": "demo",
+    "http_login": "shomer",
+    "http_password": "Sh0merc0",
     "http_port": ":8083",
     "https": false,
     "https_auto_tls": false,
@@ -15,9 +15,7 @@
     "https_key": "server.key",
     "https_port": ":443",
     "ice_credential": "",
-    "ice_servers": [
-      "stun:stun.l.google.com:19302"
-    ],
+    "ice_servers": [],
     "ice_username": "",
     "log_level": "debug",
     "rtsp_port": ":5541",
@@ -29,37 +27,44 @@
     "webrtc_port_min": 0
   },
   "streams": {
-    "27aec28e-6181-4753-9acd-0456a75f0289": {
+    "1667229395BQ1004": {
       "channels": {
         "0": {
-          "url": "rtsp://admin:sh0merc0$@192.168.10.130:554/Streaming/channels/102/?transportmode=unicast"
+          "debug": true,
+          "on_demand": true,
+          "url": "rtsp://admin:sh0merc0$@192.168.13.151:554/Streaming/channels/102/?transportmode=multicast"
         }
       },
-      "name": "shomer"
+      "name": "Viarrejo - Porta"
     },
-    "30da098b-d53f-476e-865b-54b13e066115": {
+    "1684962385QU1003": {
       "channels": {
         "0": {
-          "url": "rtsp://admin:sh0merc0$@192.168.25.197:554/Streaming/channels/101/?transportmode=unicast"
+          "debug": true,
+          "on_demand": true,
+          "url": "rtsp://admin:sh0merc0$@192.168.13.154:554/Streaming/channels/102/?transportmode=unicast"
         }
       },
-      "name": "3002"
+      "name": "Viarrejo - Porta 01"
     },
-    "32e29952-e3d6-488c-8d67-e0e7c021b04b": {
+    "1686594924AF3002": {
       "channels": {
         "0": {
-          "url": "rtsp://admin:sh0merc0$@192.168.14.151:554/Streaming/channels/102/?transportmode=unicast"
+          "debug": true,
+          "on_demand": true,
+          "url": "rtsp://admin:sh0merc0$@192.168.25.197:554/Streaming/channels/102/?transportmode=unicast"
         }
       },
-      "name": "1004 - entrada"
+      "name": "1686594924AF3002"
     },
-    "c3be7e46-1b23-4cee-871e-e17b5c3a298d": {
+    "1706879841TG3000": {
       "channels": {
         "0": {
-          "url": "rtsp://admin:sh0merc0$@192.168.14.153:554/Streaming/channels/102/?transportmode=unicast"
+          "on_demand": true,
+          "url": "rtsp://admin:sh0merc0$@192.168.10.170:554/Streaming/channels/102/?transportmode=multicast"
         }
       },
-      "name": "teste"
+      "name": "Shomer Porta"
     }
   }
 }
