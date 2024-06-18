@@ -1,0 +1,6 @@
+services:
+  rtsp_web:
+    container_name: rtsp_web
+    image: rtsp_web:1.0
+    ports:
+      - 8083:8083
